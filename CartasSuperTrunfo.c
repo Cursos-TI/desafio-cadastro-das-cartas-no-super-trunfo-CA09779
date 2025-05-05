@@ -19,6 +19,11 @@ int main() {
     float area1, area2;
     float pib1, pib2;
     int pontos_turisticos1, pontos_turisticos2;
+    float densidade_populacional1, densidade_populacional2;
+    float pib_per_capita1, pib_per_capita2;
+
+    float pib1_reais;
+    float pib2_reais;
     
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
@@ -47,12 +52,14 @@ int main() {
     printf("PIB: ");
     fgets(temporario, sizeof(temporario), stdin);
     pib1 = atof(temporario);
-
+    pib1_reais = pib1 * 1e9;
+    
     printf("Numero de Pontos Turísticos: ");
     fgets(temporario, sizeof(temporario), stdin);
     pontos_turisticos1 = atoi(temporario);
 
-
+    printf("\n");
+    
     // Registrando Segunda Carta
     printf("Estado: ");
     fgets(estado2, sizeof(estado2), stdin);
@@ -77,7 +84,8 @@ int main() {
     printf("PIB: ");
     fgets(temporario, sizeof(temporario), stdin);
     pib2 = atof(temporario);
-
+    pib2_reais = pib2 * 1e9;
+    
     printf("Numero de Pontos Turísticos: ");
     fgets(temporario, sizeof(temporario), stdin);
     pontos_turisticos2 = atoi(temporario);
@@ -97,12 +105,19 @@ int main() {
 
     printf("População: %d\n", populacao1);
 
-    printf("Área: %.2f km2\n", area1);
+    printf("Área: %.2f km²\n", area1);
 
     printf("PIB: %.2f bilhões de reais\n", pib1);
 
     printf("Numero de Pontos Turísticos: %d\n", pontos_turisticos1);
 
+    // PIB per capita e densidade populacional
+    densidade_populacional1 = (float)populacao1 / area1;
+    printf("Densidade Populacional: %.2f hab/km²\n", densidade_populacional1);
+    
+    pib_per_capita1 = pib1_reais / (float)populacao1;
+    printf("PIB per capita: %.2f reais\n", pib_per_capita1);
+    
     // Exibindo Dados da Segunda carta:
     printf("\nCarta 2: \n");
 
@@ -114,11 +129,18 @@ int main() {
 
     printf("População: %d\n", populacao2);
 
-    printf("Área: %.2f km2\n", area2);
+    printf("Área: %.2f km²\n", area2);
 
     printf("PIB: %.2f bilhões de reais\n", pib2);
 
     printf("Numero de Pontos Turísticos: %d\n", pontos_turisticos2);
 
+    // Densidade populacional e PIB per capita
+    densidade_populacional2 = (float)populacao2 / area2;
+    printf("Densidade Populacional: %.2f hab/km²\n", densidade_populacional2);
+
+    pib_per_capita2 = pib2_reais / (float)populacao2;
+    printf("PIB per capita: %.2f reais\n", pib_per_capita2);
+    
     return 0;
 }
