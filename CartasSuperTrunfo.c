@@ -24,6 +24,8 @@ int main() {
 
     float pib1_reais;
     float pib2_reais;
+
+    float super_poder1, super_poder2;
     
     // Cadastro das Cartas:
     // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
@@ -89,7 +91,7 @@ int main() {
     printf("Numero de Pontos Turísticos: ");
     fgets(temporario, sizeof(temporario), stdin);
     pontos_turisticos2 = atoi(temporario);
-    
+
     // Exibição dos Dados das Cartas:
     // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
@@ -141,6 +143,23 @@ int main() {
 
     pib_per_capita2 = pib2_reais / (float)populacao2;
     printf("PIB per capita: %.2f reais\n", pib_per_capita2);
+
+    // Calculando Super Poder das cartas
+    super_poder1 = ((float)pontos_turisticos1 + (float)populacao1 + area1 
+                    + pib1 + pib_per_capita1 + (1.0 / densidade_populacional1));
+
+    super_poder2 = ((float)pontos_turisticos2 + (float)populacao2 + area2 
+                    + pib2 + pib_per_capita2 + (1.0 / densidade_populacional2));
+
+     // Exibindo Resultados das comparações
+    printf("\n--COMPARAÇÃO DE CARTAS--\n");
+    printf("População: %d\n", populacao1 > populacao2);
+    printf("Área: %d\n", area1 > area2);
+    printf("PIB: %d\n", pib1 > pib2);
+    printf("Pontos Turísticos: %d\n", pontos_turisticos1 > pontos_turisticos2);
+    printf("Densidade Populacional: %d\n", pontos_turisticos1 < pontos_turisticos2);
+    printf("PIB per capita: %d\n", pib_per_capita1 > pib_per_capita2);
+    printf("Super Poder: %d\n", super_poder1 > super_poder2);
     
     return 0;
 }
